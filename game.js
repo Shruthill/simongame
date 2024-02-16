@@ -19,9 +19,21 @@ $(document).keypress(function(event){
         $("#level-title").text ("Level "+level);
         nextSequence();
         started=true;
+        $(".level_end").hide();
     }
     
 })
+
+$(".level_end").on("click",function(){
+    if (!started)
+    {
+        $("#level-title").text ("Level "+level);
+        nextSequence();
+        started=true;
+        $(".level_end").hide();
+    }
+    
+});
 
 function nextSequence(){
     userClickedPattern=[];
@@ -75,4 +87,6 @@ function startOver(){
     level=0;
     gamePattern=[];
     started=false;
+    $(".level_end").show();
 }
+
